@@ -1,0 +1,35 @@
+---
+# 3.1 (L1) Host should deactivate SSH
+- name: 3.1 Deactivate SSH Service
+  community.vmware.vmware_host_service_manager:
+    service_name: TSM-SSH
+    state: absent
+  when: cis_esxi_disable_ssh | bool
+
+# 3.2 (L1) Host must deactivate the ESXi shell
+- name: 3.2 Deactivate ESXi Shell Service
+  community.vmware.vmware_host_service_manager:
+    service_name: TSM
+    state: absent
+  when: cis_esxi_disable_shell | bool
+
+# 3.3 (L1) Host must deactivate the ESXi Managed Object Browser (MOB)
+- name: 3.3 Deactivate MOB
+  community.vmware.vmware_host_config_manager:
+    options:
+      'Config.HostAgent.plugins.solo.enableMob': false
+  when: cis_esxi_disable_mob | bool
+
+# 3.7 (L1) Host must automatically terminate idle DCUI sessions
+# 3.8 (L1) Host must automatically terminate idle shells
+- name: 3.7 & 3.8 Set Shell and DCUI Timeouts
+  community.vmware.vmware_host_config_manager:
+    options:
+      'UserVars.ESXiShellTimeOut': "{{ cis_esxi_shell_timeout }}"
+      'UserVars.ESXiShellInteractiveTimeOut': "{{ cis_esxi_idle_shell_timeout }}"
+
+# 3.24 (L1) Host must display a login banner for the DCUI and Host Client
+- name: 3.24 Set Login Banner
+  community.vmware.vmware_host_config_manager:
+    options:
+      'Annotations.WelcomeMessage': "{{ cis_esxi_login_banner }}"

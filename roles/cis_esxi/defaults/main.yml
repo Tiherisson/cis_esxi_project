@@ -1,0 +1,40 @@
+---
+# CIS VMware ESXi 8 Benchmark v1.2.0 Default Variables
+
+# --- Section 2: Base ---
+cis_esxi_ntp_servers: [] # List of NTP servers, e.g., ["0.pool.ntp.org", "1.pool.ntp.org"]
+cis_esxi_enable_ntp: true
+cis_esxi_restrict_tps: true # 2.10 Mem.ShareForceSalting=2
+
+# --- Section 3: Management ---
+cis_esxi_disable_ssh: true # 3.1
+cis_esxi_disable_shell: true # 3.2
+cis_esxi_disable_mob: true # 3.3 Config.HostAgent.plugins.solo.enableMob
+cis_esxi_disable_slp: true # 3.4
+cis_esxi_disable_cim: true # 3.5
+cis_esxi_disable_snmp: true # 3.6
+
+# Timeouts (in seconds)
+cis_esxi_shell_timeout: 600 # 3.7 ESXiShellTimeOut 
+cis_esxi_idle_shell_timeout: 600 # 3.8 ESXiShellInteractiveTimeOut
+
+# Password Policy (PAM/Security settings usually require localized changes or Profile usage)
+# We can set specific advanced options if available via API
+cis_esxi_lock_after_failed_attempts: 3 # 3.12 Security.AccountLockFailures
+cis_esxi_unlock_timeout: 900 # 3.13 Security.AccountUnlockTime (15 mins)
+
+# Banners
+cis_esxi_login_banner: "Authorized uses only. All activity may be monitored and reported." # 3.24/3.25
+
+# --- Section 4: Logging ---
+cis_esxi_remote_syslog: "" # 4.2 Syslog.global.logHost e.g. "udp://10.0.0.5:514"
+
+# --- Section 5: Network ---
+# Security policies for Standard vSwitches
+cis_esxi_reject_forged_transmits: true # 5.6
+cis_esxi_reject_mac_changes: true # 5.7
+cis_esxi_reject_promiscuous_mode: true # 5.8
+cis_esxi_vlan_mtu: 1500 # Just a default
+
+# --- Section 6: Features ---
+cis_esxi_iscsi_chap_required: true # 6.3.1

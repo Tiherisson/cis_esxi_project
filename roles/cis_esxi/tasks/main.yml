@@ -1,0 +1,18 @@
+---
+# Main tasks for cis_esxi role
+
+- name: Section 2 - Base Configuration (NTP, Updates)
+  import_tasks: section_2_base.yml
+  tags: [section2, base]
+
+- name: Section 3 - Management Configuration (SSH, Shell, MOB)
+  import_tasks: section_3_management.yml
+  tags: [section3, management]
+
+- name: Section 4 - Logging (Syslog)
+  import_tasks: section_4_logging.yml
+  tags: [section4, logging]
+
+- name: Section 5 - Network Configuration (vSwitch Security)
+  import_tasks: section_5_network.yml
+  tags: [section5, network]

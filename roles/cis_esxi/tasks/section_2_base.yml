@@ -1,0 +1,22 @@
+---
+# 2.6 (L1) Host must have reliable time synchronization sources
+- name: 2.6 Configure NTP Servers
+  community.vmware.vmware_host_ntp:
+    ntp_servers: "{{ cis_esxi_ntp_servers }}"
+    state: present
+  when: cis_esxi_ntp_servers | length > 0
+
+# 2.7 (L1) Host must have time synchronization services enabled and running
+- name: 2.7 Enable NTP Service
+  community.vmware.vmware_host_service_manager:
+    service_name: ntpd
+    state: present
+  when: cis_esxi_enable_ntp | bool
+
+# 2.10 (L1) Host must restrict inter-VM transparent page sharing
+# Mem.ShareForceSalting = 2
+- name: 2.10 Restrict Inter-VM Transparent Page Sharing
+  community.vmware.vmware_host_config_manager:
+    options:
+      'Mem.ShareForceSalting': 2
+  when: cis_esxi_restrict_tps | bool

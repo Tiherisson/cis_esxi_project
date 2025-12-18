@@ -1,0 +1,7 @@
+---
+# 4.2 (L1) Host must transmit system logs to a remote log collector
+- name: 4.2 Configure Remote Syslog
+  community.vmware.vmware_host_config_manager:
+    options:
+      'Syslog.global.logHost': "{{ cis_esxi_remote_syslog }}"
+  when: cis_esxi_remote_syslog | length > 0
