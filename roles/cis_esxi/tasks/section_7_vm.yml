@@ -1,0 +1,18 @@
+---
+# Section 7: Virtual Machine Hardening via VMX Advanced Settings
+
+- name: 7.x Get all VMs on the host
+  community.vmware.vmware_vm_info:
+    validate_certs: false
+  register: vm_info
+  when: cis_esxi_harden_vms | bool
+
+- name: 7.x Apply Hardening Settings to all VMs
+  community.vmware.vmware_guest:
+    name: "{{ item.guest_name }}"
+    validate_certs: false
+    advanced_settings: "{{ cis_esxi_vm_advanced_settings }}"
+  loop: "{{ vm_info.virtual_machines }}"
+  when: cis_esxi_harden_vms | bool and vm_info.virtual_machines is defined
+  loop_control:
+    label: "{{ item.guest_name }}"

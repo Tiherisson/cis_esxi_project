@@ -16,3 +16,8 @@
 - name: Section 5 - Network Configuration (vSwitch Security)
   import_tasks: section_5_network.yml
   tags: [section5, network]
+
+- name: Section 7 - Virtual Machine Hardening
+  import_tasks: section_7_vm.yml
+  tags: [section7, vm, vmx]
+

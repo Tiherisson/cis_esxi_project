@@ -13,6 +13,7 @@ Le rôle `cis_esxi` applique les configurations suivantes sur vos hôtes ESXi :
 - **Management** : Désactivation SSH/Shell/MOB, Timeouts de session, Bannières de login.
 - **Logging** : Configuration du Syslog distant.
 - **Réseau** : Sécurisation des vSwitches (Rejet Promiscuous/Forged/MAC Changes).
+- **Virtual Machine** : Isolation, Désactivation copier/coller/D&D, Limites de logs (Appliqué à toutes les VMs).
 
 ## Pré-requis
 
@@ -23,7 +24,7 @@ Le rôle `cis_esxi` applique les configurations suivantes sur vos hôtes ESXi :
 ## Installation
 
 ```bash
-git clone https://github.com/Tiherisson/cis_security_project.git
+git clone https://github.com/Tiherisson/cis_esxi_project
 cd cis_security_project/roles
 # (Copiez le rôle cis_esxi si nécessaire)
 ```

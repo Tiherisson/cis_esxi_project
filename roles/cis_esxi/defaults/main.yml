@@ -38,3 +38,21 @@ cis_esxi_vlan_mtu: 1500 # Just a default
 
 # --- Section 6: Features ---
 cis_esxi_iscsi_chap_required: true # 6.3.1
+
+# --- Section 7: Virtual Machine ---
+cis_esxi_harden_vms: true # Toggle to enable/disable VM iteration (can be slow)
+cis_esxi_vm_advanced_settings:
+  # 7.17 - 7.19 Disable Console Copy/Paste/GUI
+  "isolation.tools.copy.disable": "true"
+  "isolation.tools.paste.disable": "true"
+  "isolation.tools.dnd.disable": "true"
+  "isolation.tools.setGUIOptions.enable": "false"
+  # 7.24 Host Info
+  "tools.guest.desktop.autolock": "true"
+  # 7.21 Disk Shrink
+  "isolation.tools.diskWiper.disable": "true"
+  "isolation.tools.diskShrink.disable": "true"
+  # Log limits (7.26 / 7.27)
+  "log.keepOld": "10"
+  "log.rotateSize": "100000"
+

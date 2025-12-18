@@ -2,7 +2,7 @@
 - name: CIS VMware ESXi 8 Benchmark v1.2.0 Hardening
   hosts: esxi_hosts
   gather_facts: false
-  custom_vars:
+  vars:
     # Example override
     # cis_esxi_ntp_servers: ["10.0.0.1"]
   roles:
