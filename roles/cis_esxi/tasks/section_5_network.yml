@@ -4,12 +4,12 @@
 # 'vmware_host_vswitch' module can manage standard switches.
 
 - name: 5.6-5.8 Secure Standard vSwitch0 (Example)
-  community.vmware.vmware_host_vswitch:
-    switch_name: vSwitch0
+  community.vmware.vmware_vswitch:
+    switch: vSwitch0
     security:
       promiscuous_mode: "{{ cis_esxi_reject_promiscuous_mode }}"
       mac_changes: "{{ cis_esxi_reject_mac_changes }}"
       forged_transmits: "{{ cis_esxi_reject_forged_transmits }}"
     mtu: "{{ cis_esxi_vlan_mtu }}"
   register: vswitch_result
-  ignore_errors: true # Ignore if vSwitch0 doesn't exist
+  ignore_errors: true
