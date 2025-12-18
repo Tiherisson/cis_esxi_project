@@ -21,3 +21,7 @@
   import_tasks: section_7_vm.yml
   tags: [section7, vm, vmx]
 
+- name: Section 8 - VMware Tools Hardening
+  import_tasks: section_8_vmware_tools.yml
+  tags: [section8, vmware_tools]
+

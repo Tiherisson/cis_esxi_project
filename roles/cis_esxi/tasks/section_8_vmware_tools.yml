@@ -1,0 +1,13 @@
+---
+# Section 8: VMware Tools Hardening
+# These settings are VMX Advanced Parameters.
+# Strategy: We merge these into the same loop as Section 7 to avoid double-iteration, 
+# but for clarity/modularity in the role, we keep the file.
+# NOTICE: Since 'cis_esxi_vm_advanced_settings' in defaults/main.yml now includes Section 8 keys,
+# running Section 7 tasks will AUTOMATICALLY apply Section 8 if they use that variable.
+# So, this file might be redundant IF we assume the user runs section_7_vm.yml.
+# However, to be explicit, we can have a specific task or documentation here.
+
+- name: Section 8 - Explanation
+  debug:
+    msg: "Section 8 (VMware Tools) settings have been added to 'cis_esxi_vm_advanced_settings' and are applied by 'section_7_vm.yml' to optimize performance (single loop)."

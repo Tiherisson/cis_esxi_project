@@ -55,4 +55,25 @@ cis_esxi_vm_advanced_settings:
   # Log limits (7.26 / 7.27)
   "log.keepOld": "10"
   "log.rotateSize": "100000"
+  
+  # --- Section 8: VMware Tools ---
+  # 8.4 Prevent Recustomization
+  "isolation.deployPkg.enable-customization": "false"
+  # 8.5 Limit auto-add features
+  "isolation.tools.autoupgrade.allow-add-feature": "false"
+  # 8.6 Limit auto-remove features
+  "isolation.tools.autoupgrade.allow-remove-feature": "false"
+  # 8.7 Disable GlobalConf
+  "isolation.tools.globalconf.enable": "false"
+  # 8.8 Disable ContainerInfo
+  "isolation.tools.containerinfo.poll-interval": "0"
+  # 8.9 Disable AppInfo
+  "isolation.tools.appinfo.disable": "true"
+  # 8.10 Disable Guest Store Upgrade
+  "isolation.tools.gueststoreupgrade.policy": "off"
+  # 8.11 Disable Service Discovery
+  "isolation.tools.servicediscovery.disable": "true"
+  # 8.12 Limit MSI Transforms
+  "isolation.tools.autoupgrade.allow-msi-transforms": "false"
+
 

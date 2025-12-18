@@ -14,6 +14,7 @@ Le rôle `cis_esxi` applique les configurations suivantes sur vos hôtes ESXi :
 - **Logging** : Configuration du Syslog distant.
 - **Réseau** : Sécurisation des vSwitches (Rejet Promiscuous/Forged/MAC Changes).
 - **Virtual Machine** : Isolation, Désactivation copier/coller/D&D, Limites de logs (Appliqué à toutes les VMs).
+- **VMware Tools** : Désactivation des fonctionnalités inutiles (AppInfo, ServiceDiscovery, GlobalConf).
 
 ## Pré-requis
 
